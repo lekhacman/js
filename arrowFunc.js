@@ -37,5 +37,5 @@ let benchOptions = { async: false,
 };
 let bench = new Benchmark(foo);
 bench.run();
-
+// yeah
 console.log(bench.stats);
