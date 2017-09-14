@@ -1,0 +1,17 @@
+{
+  "camelcase":true,
+  "strict": true,
+  "undef": true,
+  "unused": true,
+  "jasmine": true,
+  "node":true,
+  "esversion": 6,
+
+  "globals": {
+    "angular": false,
+    "localStorage": false,
+    "sessionStorage": false,
+    "window": false
+  }
+
+}
