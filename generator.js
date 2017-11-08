@@ -1,13 +1,19 @@
 "use strict";
+function delay1sec(s) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(s);
+        }, 1000);
+    });
+}
 function *foo() {
-    let x = yield;
-    console.log(x);
+    while (true) {
+        delay1sec(yield ).then(success);
+    }
 }
 let it = foo();
 it.next();
-bar();
-function bar() {
-    setTimeout(function () {
-        it.next(7);
-    }, 0);
+function success(x) {
+    x++;
+    it.next();
 }
