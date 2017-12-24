@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+<body>
+<style>
+    .box {
+        height: 64px;
+        width: 25%;
+        margin: 10px 10px;
+        background-color: gray;
+    }
+</style>
+<style>
+    @media (min-width: 1px) {
+        
+    }
+</style>
+    <div class="container">
+        <div class="row">
+            <h1>Test</h1>
+        </div>
+        <div class="row">
+            <div>
+                <div class="form-group">
+                    <label for="quantity">Number of boxes:</label>
+                    <input type="number" name="quantity" id="quantity" step="1" min="1" max="128" placeholder="Number of boxes" style="width: 15%">
+                </div>
+                <form-group>
+                    <button id="renderBtn" onclick="render()">Render</button>
+                </form-group>
+            </div>
+        </div>
+        <div class="row" id="boxes">
+
+        </div>
+    </div>
+    <script>
+        function boxGenerator(num) {
+            let boxesHTML = "";
+            for (let i = 1; i <= num; i++) {
+                boxesHTML = boxesHTML + "<div onclick='clickCounter(" + i + ")' class='box' id='box" + i + "'><p>box #" + i + "</p><p id='counter" + i + "'></p></div>";
+            }
+            return "<div>" + boxesHTML + "</div>";
+        }
+        function clickCounter(id) {
+            console.log(`Counter ${id} clicked!`);
+
+            let clicks = document.getElementById("counter" + id).getAttribute("counter");
+            if (!clicks) {
+                clicks = 1;
+                document.getElementById("counter" + id).setAttribute("counter", clicks);
+            } else {
+                clicks++;
+                document.getElementById("counter" + id).setAttribute("counter", clicks);
+            }
+
+            let numberOfClicks = document.getElementById("counter" + id).getAttribute("counter");
+            document.getElementById("counter" + id).innerHTML = "(" + numberOfClicks + " clicks)";
+        }
+        function render() {
+            let quantity = document.getElementById("quantity").value;
+            console.log("Number of boxes:" + quantity);
+            document.getElementById("boxes").innerHTML = boxGenerator(quantity);
+        }
+    </script>
+</body>
+</html>
