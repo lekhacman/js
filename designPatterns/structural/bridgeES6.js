@@ -15,31 +15,49 @@
  */
 
 class Webpage {
-    constructor(theme) {}
-    getContent() {}
-}
-class About extends Webpage {
+
     constructor(theme) {
-        super();
+        if (!(theme instanceof Theme)) {
+            throw new TypeError("Param must be a Theme");
+        }
         this.theme = theme;
     }
+
+    getContent() {
+        throw new Error("Override is missing");
+    }
+
+}
+class About extends Webpage {
+
+    constructor(theme) {
+        super(theme);
+    }
+
     getContent() {
         return `About page in ${this.theme.getColor()}`;
     }
+
 }
 
 class Careers extends Webpage {
+
     constructor(theme) {
-        super();
-        this.theme = theme;
+        super(theme);
     }
+
     getContent() {
         return `Careers page in ${this.theme.getColor()}`;
     }
+
 }
 
 class Theme {
-    getColor() {}
+
+    getColor() {
+        throw new Error("Override is missing");
+    }
+
 }
 class DarkTheme extends Theme {
     getColor() { return "Dark black";}

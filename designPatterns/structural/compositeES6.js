@@ -17,35 +17,30 @@
 
 class Employee {
     constructor(name, salary) {
-        if ((typeof name !== "string") || (typeof salary !== "number")) {
-            throw new TypeError();
-        }
+        this.name = name;
+        this.salary = salary;
     }
     getName() {return this.name;}
-    setSalary(salary){}
+
+    setSalary(salary) {
+        this.salary = salary;
+    }
+
     getSalary(){ return this.salary;}
-    getRoles(){}
+
 }
 
 class Developer extends Employee {
     constructor(name, salary) {
         super(name, salary);
-        this.name = name;
-        this.salary = salary;
     }
-    getRoles() {
-        return this.roles;
-    }
+
 }
 class Designer extends Employee {
     constructor(name, salary) {
         super(name, salary);
-        this.name = name;
-        this.salary = salary;
     }
-    getRoles() {
-        return this.roles;
-    }
+
 }
 
 class Organization {
@@ -53,12 +48,16 @@ class Organization {
         this.employees = [];
     }
     addEmployee(employee) {
+        if (!(employee instanceof Employee)) {
+            throw new TypeError();
+        }
+
         this.employees.push(employee);
     }
     getNetSalaries() {
         let netSalary = 0;
-        for (let e of this.employees) {
-            netSalary += e.getSalary();
+        for (let employee of this.employees) {
+            netSalary += employee.getSalary();
         }
         return netSalary;
     }
@@ -71,4 +70,4 @@ const organization = new Organization();
 organization.addEmployee(john);
 organization.addEmployee(mary);
 
-console.log(organization.getNetSalaries());
+console.log(`Net salaries: ${organization.getNetSalaries()}`);

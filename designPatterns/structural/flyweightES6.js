@@ -32,7 +32,7 @@ class TeaMaker {
 class TeaShop {
     constructor(teaMaker) {
         if (!(teaMaker instanceof TeaMaker)) {
-            throw new TypeError("Param must be a Teamaker");
+            throw new TypeError();
         }
         this.orders = new Map();
         this.teaMaker = teaMaker;
@@ -51,6 +51,7 @@ class TeaShop {
 
 const teaMaker = new TeaMaker();
 const shop = new TeaShop(teaMaker);
+
 shop.takeOrder("less sugar", 1);
 shop.takeOrder("more milk", 2);
 shop.takeOrder("without sugar", 5);

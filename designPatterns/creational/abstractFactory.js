@@ -17,7 +17,7 @@
  * When to use?
  * When there are interrelated dependencies with not-that-simple creation logic involved
  */
-const config = require("../../config");
+const config = require("../../core/config");
 function Door() {
 }
 Door.prototype.getDescription = function () {

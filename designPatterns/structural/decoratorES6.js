@@ -18,8 +18,12 @@
  */
 
 class Coffee {
-    getCost() {}
-    getDescription(){}
+    getCost() {
+        throw new Error("Override is missing");
+    }
+    getDescription(){
+        throw new Error("Override is missing");
+    }
 }
 
 class SimpleCoffee extends Coffee {
@@ -33,7 +37,7 @@ class SimpleCoffee extends Coffee {
 class MilkCofee extends Coffee {
     constructor(coffee) {
         if (!(coffee instanceof Coffee)) {
-            throw new TypeError("Param must be an instance of Coffee");
+            throw new TypeError();
         }
         super();
         this.coffee = coffee;
@@ -49,7 +53,7 @@ class MilkCofee extends Coffee {
 class WhipCofefee extends Coffee {
     constructor(coffee) {
         if (!(coffee instanceof Coffee)) {
-            throw new TypeError("Param must be an instance of Coffee");
+            throw new TypeError();
         }
         super();
         this.coffee = coffee;

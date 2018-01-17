@@ -26,6 +26,7 @@ class Interviewer {
     askQuestions() {
         console.log("I'm an interviewer");
     }
+
 }
 class Developer extends Interviewer {
     askQuestions() {
@@ -42,33 +43,41 @@ class CommunityExecutive extends Interviewer {
 class HiringManager {
 
     constructor() {
-        // Factory method
         function makeInterviewer() {
             return new Interviewer();
         }
         this.interviewer = makeInterviewer();
     }
+
     takeInterview() {
         this.interviewer.askQuestions();
     }
+
 }
 class DevelopmentManager extends HiringManager {
+
     constructor() {
         super();
+        // Factory method
         function makeInterviewer() {
             return new Developer();
         }
-        this.interviewer = makeInterviewer();
+        this.interviewer = makeInterviewer() ;
     }
+
 }
+
 class MarketingManager extends HiringManager {
+
     constructor() {
         super();
+        // Factory method
         function makeInterviewer() {
             return new CommunityExecutive();
         }
         this.interviewer = makeInterviewer();
     }
+
 }
 
 const devManager = new DevelopmentManager();

@@ -17,7 +17,7 @@
  * to make existing classes work with others without modifying their source code.
  *
  */
-const config = require("../../config");
+const config = require("../../core/config");
 class Lion {
     roar() {
         throw new Error(config.CONSTANTS.MESSAGES.ERROR.MISSING_OVERIDE);
@@ -25,9 +25,9 @@ class Lion {
 }
 
 class AfrianLion extends Lion {
-    roar() {
 
-    }
+    roar() {}
+
 }
 class AsianLion extends Lion {
     roar() {
@@ -38,7 +38,11 @@ class WildDog {
     bark() {}
 }
 class WildDogAdapter extends Lion {
+
     constructor(dog) {
+        if (!(dog instanceof WildDog)) {
+            throw new TypeError("Param must be a WildDog");
+        }
         super();
         this.dog = dog;
     }
@@ -46,10 +50,13 @@ class WildDogAdapter extends Lion {
     roar() {
         this.dog.bark();
     }
+
 }
 class Hunter {
     hunt(lion) {
-
+        if (!(lion instanceof Lion)) {
+            throw new TypeError("Param must be a Lion");
+        }
     }
 }
 

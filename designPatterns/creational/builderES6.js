@@ -33,6 +33,9 @@
 
 class Burger {
     constructor(burger) {
+        if (!(burger instanceof BurgerBuilder)) {
+            throw new TypeError("Param must be a BurgerBuilder");
+        }
         this.size = burger.size;
         this.cheese = burger.cheese || false;
         this.pepperoni = burger.pepperoni || false;

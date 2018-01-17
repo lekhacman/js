@@ -16,44 +16,25 @@
  *
 */
 // Object
-function Door(width, height) {
-    this.width = width;
-    this.height = height;
-}
-Door.prototype.getWidth = function () {
-    return this.width;
-};
-Door.prototype.getHeight = function () {
-    return this.height;
-};
-class WoodenDoor {
+class Door {
     constructor(width, height) {
         this.width = width;
         this.height = height;
     }
-    getWidth() {
-        return this.width;
-    }
-    getHeight() {
-        return this.height;
+}
+class WoodenDoor extends Door {
+    constructor(width, height) {
+        super(width, height);
     }
 }
 // Factory
-function doorFactory() {
-    function makeDoor(w, h) {
-        return new Door(w, h);
-    }
-    function makeWoodenDoor(w, h) {
+class doorFactory {
+
+    static makeWoodenDoor(w, h) {
         return new WoodenDoor(w, h);
     }
-    return {
-        makeDoor,
-        makeWoodenDoor
-    };
 }
 
-const factory = doorFactory();
-const door = factory.makeDoor(100, 200);
-const woodenDoor = factory.makeWoodenDoor(1800, 2000);
-console.log(`Width: ${door.getWidth()}; Height: ${door.getHeight()}`);
-console.log(`Width: ${woodenDoor.getWidth()}; Height: ${woodenDoor.getHeight()}`);
+const woodenDoor = doorFactory.makeWoodenDoor(1800, 2000);
+console.log(`Width: ${woodenDoor.width}`);
+console.log(`Height: ${woodenDoor.height}`);

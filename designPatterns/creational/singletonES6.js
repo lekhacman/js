@@ -18,17 +18,15 @@
  * coupled plus mocking the singleton could be difficult.
  *
  */
-const president = {
-    name: "Min",
-    language: "JavaScript"
-};
-
-const government = {
-    getPresident: function () {
-        return president;
+class President {
+    constructor(name, country) {
+        this.name = name || "John Doe";
+        this.country = country || "JavaScript";
     }
-};
+}
 
-Object.freeze(government);
+const president = new President("Mary Lou");
 
-module.exports = government;
+Object.freeze(president);
+
+module.exports = president;

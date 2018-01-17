@@ -19,8 +19,12 @@
  */
 
 class Door {
-    open() {}
-    close() {}
+    open() {
+        throw new Error("Override is missing");
+    }
+    close() {
+        throw new Error("Override is missing");
+    }
 }
 
 class LabDoor extends Door {
@@ -53,6 +57,7 @@ class Security {
     }
 
     close() {
+        throw new Error("Override is missing");
         this.door.close();
     }
 }
