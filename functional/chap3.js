@@ -56,3 +56,50 @@ function partialRight(fn, ...presetArgs) {
 }
 
 // One at a time
+
+// Curry technique
+function curry(fn, arity = fn.length) {
+    return (function nextCurried(prevArgs) {
+        return function curried(nextArg) {
+            const args = [...prevArgs, nextArg];
+
+            if (args.length >= arity) {
+                return fn(...args);
+            } else {
+                return nextCurried(args);
+            }
+        };
+    })([]);
+}
+
+function looseCurry() {
+    return (function nextCurried(prevArgs) {
+        return function curried(...nextArg) {
+            const args = [...prevArgs, ...nextArg];
+
+            if (args.length >= arity) {
+                return fn(...args);
+            } else {
+                return nextCurried(args);
+            }
+        };
+    })([]);
+}
+
+function uncurry(fn) {
+    return function uncurried(...args) {
+        let ret = fn;
+
+        for (let arg of args) {
+            ret = ret(arg);
+        }
+
+        return ret;
+    };
+}
+
+function foo(x, y, z) {
+    console.log(x + y + z);
+}
+
+curry(foo)(3)(4)(5);
