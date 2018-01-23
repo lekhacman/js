@@ -1,0 +1,11 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "JS samples",
+  "repository": "https://github.com/lekhacman/js.git",
+  "author": "Le Khac Man",
+  "license": "MIT",
+  "dependencies": {
+    "crc": "^3.5.0"
+  }
+}
