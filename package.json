@@ -6,6 +6,7 @@
   "author": "Le Khac Man",
   "license": "MIT",
   "dependencies": {
+    "benchmark": "^2.1.4",
     "crc": "^3.5.0"
   }
 }
