@@ -3,6 +3,11 @@ module.exports = {
     iterativeFactorial
 };
 
+/**
+ * Linear recursive process (NOT recursive procedure)
+ * @param x
+ * @return {number}
+ */
 function linearFactorial(x) {
     throwIfNegative(x);
 
@@ -13,6 +18,11 @@ function linearFactorial(x) {
     return x * linearFactorial(x-1);
 }
 
+/**
+ * Linear iterative process
+ * @param x
+ * @return {number}
+ */
 function iterativeFactorial(x) {
     throwIfNegative(x);
 
