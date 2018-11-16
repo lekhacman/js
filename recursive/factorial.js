@@ -1,6 +1,6 @@
 module.exports = {
     linearFactorial,
-    iterFactorial
+    iterativeFactorial
 };
 
 function linearFactorial(x) {
@@ -13,7 +13,7 @@ function linearFactorial(x) {
     return x * linearFactorial(x-1);
 }
 
-function iterFactorial(x) {
+function iterativeFactorial(x) {
     throwIfNegative(x);
 
     let result = 1;

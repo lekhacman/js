@@ -14,17 +14,17 @@ describe("Factorial", () => {
         }).toThrow();
     });
 
-    test(".iterFactorial", () => {
-        expect(factorial.iterFactorial(0)).toEqual(1);
-        expect(factorial.iterFactorial(1)).toEqual(1);
-        expect(factorial.iterFactorial(2)).toEqual(2);
-        expect(factorial.iterFactorial(3)).toEqual(6);
-        expect(factorial.iterFactorial(6)).toEqual(720);
+    test(".iterativeFactorial", () => {
+        expect(factorial.iterativeFactorial(0)).toEqual(1);
+        expect(factorial.iterativeFactorial(1)).toEqual(1);
+        expect(factorial.iterativeFactorial(2)).toEqual(2);
+        expect(factorial.iterativeFactorial(3)).toEqual(6);
+        expect(factorial.iterativeFactorial(6)).toEqual(720);
     });
 
-    test(".iterFactorial error", () => {
+    test(".iterativeFactorial error", () => {
         expect(() => {
-            factorial.iterFactorial(-5);
+            factorial.iterativeFactorial(-5);
         }).toThrow();
     });
 });
