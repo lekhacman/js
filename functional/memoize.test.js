@@ -14,13 +14,12 @@ fibonacci.cache.set(fibonacci.hash([0]), 0);
 fibonacci.cache.set(fibonacci.hash([1]), 1);
 
 const unary = fn => arg => fn(arg);
-
+const list = [0, 1, 2, 5, 8, 9, 12, 6, 9, 22, 11    ];
 function invokeRaw() {
-    const list = [0, 1, 2, 5, 8, 9, 12, 6, 9, 22, 11, 18, 20, 25, 18];
     list.forEach(unary(rawFibonacci));
 }
 function invokeMem() {
-    const list = [0, 1, 2, 5, 8, 9, 12, 6, 9, 22, 11, 18, 20, 25, 18];
+
     list.forEach(unary(fibonacci));
 }
 
