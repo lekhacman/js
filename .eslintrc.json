@@ -25,6 +25,7 @@
             "error",
             "always"
         ],
+        "comma-dangle": "off",
         "prettier/prettier": [
             "error",
             {
