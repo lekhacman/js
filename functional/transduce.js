@@ -28,5 +28,5 @@ const transducer = R.compose(
     R.map(R.prop("name"))
 );
 
-const result = R.transduce(transducer, R.flip(R.append), [], list);
+const result = R.into([], transducer)(list);
 console.log(result);
