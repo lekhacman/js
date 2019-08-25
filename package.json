@@ -6,6 +6,7 @@
   "author": "Le Khac Man",
   "license": "MIT",
   "dependencies": {
+    "@types/jest": "^24.0.18",
     "benchmark": "^2.1.4",
     "crc": "^3.5.0",
     "lodash": "^4.17.5",
