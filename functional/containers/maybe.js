@@ -1,3 +1,5 @@
+const R = require("ramda");
+
 class Container {
   constructor(x) {
     this.$value = x;
@@ -34,7 +36,20 @@ class Maybe {
   }
 }
 
+/**
+ * see R.unless, R.when
+ * b -> (a -> b) -> Maybe a -> b
+ */
+const maybe = R.curry(function(v, f, m) {
+  if (m.isNothing) {
+    return v;
+  }
+
+  return f(m.$value);
+});
+
 module.exports = {
   Container,
-  Maybe
+  Maybe,
+  maybe
 };

@@ -1,5 +1,5 @@
 const R = require("ramda");
-const { Container, Maybe } = require("./maybe");
+const { Container, Maybe, maybe } = require("./maybe");
 
 test("Container", () => {
   const c = Container.of(3);
@@ -22,27 +22,40 @@ test("Maybe", () => {
   ).toEqual(Maybe.of("Shenton Way"));
 });
 
-test("Explicit error", () => {
+describe("Bank", () => {
   const widthdraw = R.curry(function(amount, { balance }) {
     return Maybe.of(balance >= amount ? { balance: balance - amount } : null);
   });
-
-  const updateLedger = account => account;
-
   const remainingBalance = ({ balance }) => `Your balance is $${balance}`;
+  const updateLedger = account => account;
 
   const finishTransaction = R.compose(
     remainingBalance,
     updateLedger
   );
 
-  const getTwenty = R.compose(
-    R.map(finishTransaction),
-    widthdraw(20)
-  );
+  test("Explicit error", () => {
+    const getTwenty = R.compose(
+      R.map(finishTransaction),
+      widthdraw(20)
+    );
 
-  expect(getTwenty({ balance: 200 })).toEqual(
-    Maybe.of(remainingBalance({ balance: 180 }))
-  );
-  expect(getTwenty({ balance: 10 })).toEqual(Maybe.of(null));
+    expect(getTwenty({ balance: 200 })).toEqual(
+      Maybe.of(remainingBalance({ balance: 180 }))
+    );
+    expect(getTwenty({ balance: 10 })).toEqual(Maybe.of(null));
+  });
+
+  test("maybe", () => {
+    const msg = "You're broke!";
+    const getTwenty = R.compose(
+      maybe(msg, finishTransaction),
+      widthdraw(20)
+    );
+
+    expect(getTwenty({ balance: 200 })).toEqual(
+      remainingBalance({ balance: 180 })
+    );
+    expect(getTwenty({ balance: 10 })).toEqual(msg);
+  });
 });
