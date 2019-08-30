@@ -1,3 +1,4 @@
+// t
 class Either {
   static of(x) {
     return new Right(x);
