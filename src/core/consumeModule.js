@@ -1,3 +1,3 @@
-import * as excel from "src/core/commonModule";
+import * as excel from 'src/core/commonModule';
 
-console.log(excel.sum(2,3));
+console.log(excel.sum(2, 3));

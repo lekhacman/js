@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Real world example:
@@ -21,53 +21,59 @@
  * know what exact sub-class it might need.
  */
 
-function Interviewer() {
-}
-Interviewer.prototype.askQuestions = function () {
-    console.log("I'm an interviewer");
+function Interviewer() {}
+
+Interviewer.prototype.askQuestions = function() {
+  console.log("I'm an interviewer");
 };
 
-function Developer() {
-}
+function Developer() {}
+
 Developer.prototype = Object.create(Interviewer.prototype);
 Developer.prototype.constructor = Developer;
-Developer.prototype.askQuestions = function () {
-    console.log("Asking about design patterns.");
+Developer.prototype.askQuestions = function() {
+  console.log('Asking about design patterns.');
 };
 
-function CommunityExecutive() {
-}
+function CommunityExecutive() {}
+
 CommunityExecutive.prototype = Object.create(Interviewer.prototype);
-CommunityExecutive.prototype.askQuestions = function () {
-    console.log("Asking about community building.");
+CommunityExecutive.prototype.askQuestions = function() {
+  console.log('Asking about community building.');
 };
 
 function HiringManager() {
-    // Factory method
-    function makeInterviewer() {
-        return new Interviewer();
-    }
-    this.interviewer = makeInterviewer();
+  // Factory method
+  function makeInterviewer() {
+    return new Interviewer();
+  }
+
+  this.interviewer = makeInterviewer();
 }
-HiringManager.prototype.takeInterview = function () {
-    this.interviewer.askQuestions();
+
+HiringManager.prototype.takeInterview = function() {
+  this.interviewer.askQuestions();
 };
 
 function DevelopmentManager() {
-    function makeInterviewer() {
-        return new Developer();
-    }
-    this.interviewer = makeInterviewer();
+  function makeInterviewer() {
+    return new Developer();
+  }
+
+  this.interviewer = makeInterviewer();
 }
+
 DevelopmentManager.prototype = Object.create(HiringManager.prototype);
 DevelopmentManager.prototype.constructor = DevelopmentManager;
 
 function MarketingManager() {
-    function makeInterviewer() {
-        return new CommunityExecutive();
-    }
-    this.interviewer = makeInterviewer();
+  function makeInterviewer() {
+    return new CommunityExecutive();
+  }
+
+  this.interviewer = makeInterviewer();
 }
+
 MarketingManager.prototype = Object.create(HiringManager.prototype);
 MarketingManager.prototype.constructor = MarketingManager;
 

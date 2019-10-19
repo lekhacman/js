@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Consider you have a website with different pages and you are supposed
@@ -15,58 +15,57 @@
  */
 
 class Webpage {
-
-    constructor(theme) {
-        if (!(theme instanceof Theme)) {
-            throw new TypeError("Param must be a Theme");
-        }
-        this.theme = theme;
+  constructor(theme) {
+    if (!(theme instanceof Theme)) {
+      throw new TypeError('Param must be a Theme');
     }
 
-    getContent() {
-        throw new Error("Override is missing");
-    }
+    this.theme = theme;
+  }
 
+  getContent() {
+    throw new Error('Override is missing');
+  }
 }
 class About extends Webpage {
+  constructor(theme) {
+    super(theme);
+  }
 
-    constructor(theme) {
-        super(theme);
-    }
-
-    getContent() {
-        return `About page in ${this.theme.getColor()}`;
-    }
-
+  getContent() {
+    return `About page in ${this.theme.getColor()}`;
+  }
 }
 
 class Careers extends Webpage {
+  constructor(theme) {
+    super(theme);
+  }
 
-    constructor(theme) {
-        super(theme);
-    }
-
-    getContent() {
-        return `Careers page in ${this.theme.getColor()}`;
-    }
-
+  getContent() {
+    return `Careers page in ${this.theme.getColor()}`;
+  }
 }
 
 class Theme {
-
-    getColor() {
-        throw new Error("Override is missing");
-    }
-
+  getColor() {
+    throw new Error('Override is missing');
+  }
 }
 class DarkTheme extends Theme {
-    getColor() { return "Dark black";}
+  getColor() {
+    return 'Dark black';
+  }
 }
 class LightTheme extends Theme {
-    getColor() {return "Off white";}
+  getColor() {
+    return 'Off white';
+  }
 }
 class AquaTheme extends Theme {
-    getColor() {return "Light blue";}
+  getColor() {
+    return 'Light blue';
+  }
 }
 
 const darkTheme = new DarkTheme();

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * There can only be one president of a country at a time. The same president
@@ -19,22 +19,20 @@
  *
  */
 
+const government = (function() {
+  const president = {
+    name: 'Min',
+    language: 'Javascript',
+  };
 
-const government = (
-    function () {
-        const president = {
-            name: "Min",
-            language: "Javascript"
-        };
+  function getPresident() {
+    return president;
+  }
 
-        function getPresident() {
-            return president;
-        }
-        return {
-            getPresident
-        };
-    }
-)();
+  return {
+    getPresident,
+  };
+})();
 
 const president1 = government.getPresident();
 const president2 = government.getPresident();

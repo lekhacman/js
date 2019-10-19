@@ -6,19 +6,19 @@ module.exports = { triangle, triangleElement };
  * @return {number[]}
  */
 function triangle(x) {
-    const result = [1];
-    if (x === 1) {
-        return result;
-    }
-
-    for (let i = 1; i < x - 1; i++) {
-        const previousRow = triangle(x - 1);
-        result.push(previousRow[i - 1] + previousRow[i]);
-    }
-
-    result.push(1);
-
+  const result = [1];
+  if (x === 1) {
     return result;
+  }
+
+  for (let i = 1; i < x - 1; i++) {
+    const previousRow = triangle(x - 1);
+    result.push(previousRow[i - 1] + previousRow[i]);
+  }
+
+  result.push(1);
+
+  return result;
 }
 
 /**
@@ -28,12 +28,12 @@ function triangle(x) {
  * @return {*}
  */
 function triangleElement(row, index) {
-    if (index === 0 || index === row - 1) {
-        return 1;
-    }
+  if (index === 0 || index === row - 1) {
+    return 1;
+  }
 
-    const aboveRow = row - 1;
-    return (
-        triangleElement(aboveRow, index - 1) + triangleElement(aboveRow, index)
-    );
+  const aboveRow = row - 1;
+  return (
+    triangleElement(aboveRow, index - 1) + triangleElement(aboveRow, index)
+  );
 }

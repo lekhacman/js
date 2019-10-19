@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Imagine you are at Hardee's and you order a specific deal, lets say,
@@ -32,51 +32,58 @@
  */
 
 class Burger {
-    constructor(burger) {
-        if (!(burger instanceof BurgerBuilder)) {
-            throw new TypeError("Param must be a BurgerBuilder");
-        }
-        this.size = burger.size;
-        this.cheese = burger.cheese || false;
-        this.pepperoni = burger.pepperoni || false;
-        this.lettuce = burger.lettuce || false;
-        this.tomato = burger.tomato || false;
+  constructor(burger) {
+    if (!(burger instanceof BurgerBuilder)) {
+      throw new TypeError('Param must be a BurgerBuilder');
     }
+
+    this.size = burger.size;
+    this.cheese = burger.cheese || false;
+    this.pepperoni = burger.pepperoni || false;
+    this.lettuce = burger.lettuce || false;
+    this.tomato = burger.tomato || false;
+  }
 }
 
 class BurgerBuilder {
-    constructor(size) {
-        if (!size) {
-            throw new Error("Burger size is required");
-        }
-        this.size = size;
-        this.cheese = false;
-        this.pepperoni = false;
-        this.lettuce = false;
-        this.tomato = false;
+  constructor(size) {
+    if (!size) {
+      throw new Error('Burger size is required');
     }
-    addPepperoni() {
-        this.pepperoni = true;
-        return this;
-    }
-    addLettuce() {
-        this.lettuce = true;
-        return this;
-    }
-    addCheese() {
-        this.cheese = true;
-        return this;
-    }
-    addTomato() {
-        this.tomato = true;
-        return this;
-    }
-    build() {
-        return new Burger(this);
-    }
+
+    this.size = size;
+    this.cheese = false;
+    this.pepperoni = false;
+    this.lettuce = false;
+    this.tomato = false;
+  }
+
+  addPepperoni() {
+    this.pepperoni = true;
+    return this;
+  }
+
+  addLettuce() {
+    this.lettuce = true;
+    return this;
+  }
+
+  addCheese() {
+    this.cheese = true;
+    return this;
+  }
+
+  addTomato() {
+    this.tomato = true;
+    return this;
+  }
+
+  build() {
+    return new Burger(this);
+  }
 }
 const burger = new BurgerBuilder(14)
-    .addPepperoni()
-    .addCheese()
-    .build();
+  .addPepperoni()
+  .addCheese()
+  .build();
 console.log(burger);

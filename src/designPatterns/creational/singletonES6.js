@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * There can only be one president of a country at a time. The same president
@@ -19,13 +19,13 @@
  *
  */
 class President {
-    constructor(name, country) {
-        this.name = name || "John Doe";
-        this.country = country || "JavaScript";
-    }
+  constructor(name, country) {
+    this.name = name || 'John Doe';
+    this.country = country || 'JavaScript';
+  }
 }
 
-const president = new President("Mary Lou");
+const president = new President('Mary Lou');
 
 Object.freeze(president);
 

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Did you ever have fresh tea from some stall? They often make more
@@ -18,43 +18,46 @@
 class KarakTea {}
 
 class TeaMaker {
-    constructor() {
-        this.availableTea = new Map();
+  constructor() {
+    this.availableTea = new Map();
+  }
+
+  make(preference) {
+    if (!this.availableTea.get(preference)) {
+      this.availableTea.set(preference, new KarakTea());
     }
-    make(preference) {
-        if (!this.availableTea.get(preference)) {
-            this.availableTea.set(preference, new KarakTea());
-        }
-        return this.availableTea.get(preference);
-    }
+
+    return this.availableTea.get(preference);
+  }
 }
 
 class TeaShop {
-    constructor(teaMaker) {
-        if (!(teaMaker instanceof TeaMaker)) {
-            throw new TypeError();
-        }
-        this.orders = new Map();
-        this.teaMaker = teaMaker;
+  constructor(teaMaker) {
+    if (!(teaMaker instanceof TeaMaker)) {
+      throw new TypeError();
     }
 
-    takeOrder(teaType, table) {
-        this.orders.set(table, this.teaMaker.make(teaType));
-    }
+    this.orders = new Map();
+    this.teaMaker = teaMaker;
+  }
 
-    serve() {
-        for (const order of this.orders) {
-            console.log(`Serving tea to table# ${order[0]}`);
-        }
+  takeOrder(teaType, table) {
+    this.orders.set(table, this.teaMaker.make(teaType));
+  }
+
+  serve() {
+    for (const order of this.orders) {
+      console.log(`Serving tea to table# ${order[0]}`);
     }
+  }
 }
 
 const teaMaker = new TeaMaker();
 const shop = new TeaShop(teaMaker);
 
-shop.takeOrder("less sugar", 1);
-shop.takeOrder("more milk", 2);
-shop.takeOrder("without sugar", 5);
-shop.takeOrder("more milk", 7);
+shop.takeOrder('less sugar', 1);
+shop.takeOrder('more milk', 2);
+shop.takeOrder('without sugar', 5);
+shop.takeOrder('more milk', 7);
 
 shop.serve();

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Imagine you run a car service shop offering multiple services. Now how do you
@@ -18,68 +18,79 @@
  */
 
 class Coffee {
-    getCost() {
-        throw new Error("Override is missing");
-    }
-    getDescription(){
-        throw new Error("Override is missing");
-    }
+  getCost() {
+    throw new Error('Override is missing');
+  }
+
+  getDescription() {
+    throw new Error('Override is missing');
+  }
 }
 
 class SimpleCoffee extends Coffee {
-    getCost() {
-        return 10;
-    }
-    getDescription() {
-        return "Simple coffee";
-    }
+  getCost() {
+    return 10;
+  }
+
+  getDescription() {
+    return 'Simple coffee';
+  }
 }
 class MilkCofee extends Coffee {
-    constructor(coffee) {
-        if (!(coffee instanceof Coffee)) {
-            throw new TypeError();
-        }
-        super();
-        this.coffee = coffee;
+  constructor(coffee) {
+    if (!(coffee instanceof Coffee)) {
+      throw new TypeError();
     }
-    getCost() {
-        return this.coffee.getCost() + 2;
-    }
-    getDescription() {
-        return `${this.coffee.getDescription()}, and milk`;
-    }
+
+    super();
+    this.coffee = coffee;
+  }
+
+  getCost() {
+    return this.coffee.getCost() + 2;
+  }
+
+  getDescription() {
+    return `${this.coffee.getDescription()}, and milk`;
+  }
 }
 
 class WhipCofefee extends Coffee {
-    constructor(coffee) {
-        if (!(coffee instanceof Coffee)) {
-            throw new TypeError();
-        }
-        super();
-        this.coffee = coffee;
+  constructor(coffee) {
+    if (!(coffee instanceof Coffee)) {
+      throw new TypeError();
     }
-    getCost() {
-        return this.coffee.getCost() + 5;
-    }
-    getDescription() {
-        return `${this.coffee.getDescription()}, and whip`;
-    }
+
+    super();
+    this.coffee = coffee;
+  }
+
+  getCost() {
+    return this.coffee.getCost() + 5;
+  }
+
+  getDescription() {
+    return `${this.coffee.getDescription()}, and whip`;
+  }
 }
 
 class VanillaCofefee extends Coffee {
-    constructor(coffee) {
-        if (!(coffee instanceof Coffee)) {
-            throw new TypeError("Param must be an instance of Coffee");
-        }
-        super();
-        this.coffee = coffee;
+  constructor(coffee) {
+    if (!(coffee instanceof Coffee)) {
+      throw new TypeError('Param must be an instance of Coffee');
     }
-    getCost() {
-        return this.coffee.getCost() + 3;
-    }
-    getDescription() {
-        return `${this.coffee.getDescription()}, and vanilla`;
-    }
+
+    super();
+    this.coffee = coffee;
+  }
+
+  getCost() {
+    return this.coffee.getCost() + 3;
+  }
+
+  getDescription() {
+    return `${this.coffee.getDescription()}, and vanilla`;
+  }
 }
 
 let someCoffee = new SimpleCoffee();

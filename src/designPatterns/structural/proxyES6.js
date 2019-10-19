@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Have you ever used an access card to go through a door? There are multiple
@@ -19,51 +19,54 @@
  */
 
 class Door {
-    open() {
-        throw new Error("Override is missing");
-    }
-    close() {
-        throw new Error("Override is missing");
-    }
+  open() {
+    throw new Error('Override is missing');
+  }
+
+  close() {
+    throw new Error('Override is missing');
+  }
 }
 
 class LabDoor extends Door {
-    open() {
-        console.log("Opening lab door");
-    }
-    close() {
-        console.log("Closing the lab door");
-    }
+  open() {
+    console.log('Opening lab door');
+  }
+
+  close() {
+    console.log('Closing the lab door');
+  }
 }
 
 class Security {
-    constructor(door) {
-        if (!(door instanceof Door)) {
-            throw new TypeError("Param must be a Door");
-        }
-        this.door = door;
+  constructor(door) {
+    if (!(door instanceof Door)) {
+      throw new TypeError('Param must be a Door');
     }
 
-    open(password) {
-        if (this.authenticate(password)) {
-            this.door.open();
-        } else {
-            console.log("Big no! It ain't possible.");
-        }
-    }
+    this.door = door;
+  }
 
-    authenticate(password) {
-        return password === "$ecr@t";
+  open(password) {
+    if (this.authenticate(password)) {
+      this.door.open();
+    } else {
+      console.log("Big no! It ain't possible.");
     }
+  }
 
-    close() {
-        throw new Error("Override is missing");
-        this.door.close();
-    }
+  authenticate(password) {
+    return password === '$ecr@t';
+  }
+
+  close() {
+    throw new Error('Override is missing');
+    this.door.close();
+  }
 }
 
 const door = new Security(new LabDoor());
-door.open("Invalid");
+door.open('Invalid');
 
-door.open("$ecr@t");
+door.open('$ecr@t');
 door.close();

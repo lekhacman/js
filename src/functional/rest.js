@@ -1,5 +1,5 @@
-"use strict";
-const _rest = require("lodash/fp/rest");
+'use strict';
+const _rest = require('lodash/fp/rest');
 
 let a = 2;
 let b = 3;

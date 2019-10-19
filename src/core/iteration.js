@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
-let arr = ["a", "b", "c"];
+let arr = ['a', 'b', 'c'];
 let obj = {
-    a: 3,
-    b:4
+  a: 3,
+  b: 4,
 };
 
 for (let i of arr) {
-    console.log(i);
+  console.log(i);
 }
 // failed
 // for (let item of obj) {

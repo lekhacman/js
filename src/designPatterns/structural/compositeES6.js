@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Every organization is composed of employees. Each of the employees
@@ -16,55 +16,60 @@
  */
 
 class Employee {
-    constructor(name, salary) {
-        this.name = name;
-        this.salary = salary;
-    }
-    getName() {return this.name;}
+  constructor(name, salary) {
+    this.name = name;
+    this.salary = salary;
+  }
 
-    setSalary(salary) {
-        this.salary = salary;
-    }
+  getName() {
+    return this.name;
+  }
 
-    getSalary(){ return this.salary;}
+  setSalary(salary) {
+    this.salary = salary;
+  }
 
+  getSalary() {
+    return this.salary;
+  }
 }
 
 class Developer extends Employee {
-    constructor(name, salary) {
-        super(name, salary);
-    }
-
+  constructor(name, salary) {
+    super(name, salary);
+  }
 }
 class Designer extends Employee {
-    constructor(name, salary) {
-        super(name, salary);
-    }
-
+  constructor(name, salary) {
+    super(name, salary);
+  }
 }
 
 class Organization {
-    constructor() {
-        this.employees = [];
-    }
-    addEmployee(employee) {
-        if (!(employee instanceof Employee)) {
-            throw new TypeError();
-        }
+  constructor() {
+    this.employees = [];
+  }
 
-        this.employees.push(employee);
+  addEmployee(employee) {
+    if (!(employee instanceof Employee)) {
+      throw new TypeError();
     }
-    getNetSalaries() {
-        let netSalary = 0;
-        for (let employee of this.employees) {
-            netSalary += employee.getSalary();
-        }
-        return netSalary;
+
+    this.employees.push(employee);
+  }
+
+  getNetSalaries() {
+    let netSalary = 0;
+    for (let employee of this.employees) {
+      netSalary += employee.getSalary();
     }
+
+    return netSalary;
+  }
 }
 
-const john = new Developer("John Doe", 12000);
-const mary = new Designer("Mary Lou", 15000);
+const john = new Developer('John Doe', 12000);
+const mary = new Designer('Mary Lou', 15000);
 
 const organization = new Organization();
 organization.addEmployee(john);

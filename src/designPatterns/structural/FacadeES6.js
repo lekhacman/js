@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * How do you turn on the computer? "Hit the power button" you say!
@@ -14,56 +14,56 @@
  */
 
 class Computer {
-    getElectricShock() {
-        console.log("Ouch!");
-    }
+  getElectricShock() {
+    console.log('Ouch!');
+  }
 
-    makeSound() {
-        console.log("Beep beep!");
-    }
+  makeSound() {
+    console.log('Beep beep!');
+  }
 
-    showLoadingScreen() {
-        console.log("Loading..");
-    }
+  showLoadingScreen() {
+    console.log('Loading..');
+  }
 
-    bam() {
-        console.log("Ready to be used!");
-    }
+  bam() {
+    console.log('Ready to be used!');
+  }
 
-    closeEverything() {
-        console.log("Bup bup bup buzzzz!");
-    }
+  closeEverything() {
+    console.log('Bup bup bup buzzzz!');
+  }
 
-    sooth() {
-        console.log("Zzzzz");
-    }
+  sooth() {
+    console.log('Zzzzz');
+  }
 
-    pullCurrent() {
-        console.log("Haaah!");
-    }
-
+  pullCurrent() {
+    console.log('Haaah!');
+  }
 }
 
 class ComputerFacade {
-    constructor(computer) {
-        if (!(computer instanceof Computer)) {
-            throw new TypeError("Param must be a Computer");
-        }
-        this.computer = computer;
+  constructor(computer) {
+    if (!(computer instanceof Computer)) {
+      throw new TypeError('Param must be a Computer');
     }
 
-    turnOn() {
-        this.computer.getElectricShock();
-        this.computer.makeSound();
-        this.computer.showLoadingScreen();
-        this.computer.bam();
-    }
+    this.computer = computer;
+  }
 
-    turnOff() {
-        this.computer.closeEverything();
-        this.computer.pullCurrent();
-        this.computer.sooth();
-    }
+  turnOn() {
+    this.computer.getElectricShock();
+    this.computer.makeSound();
+    this.computer.showLoadingScreen();
+    this.computer.bam();
+  }
+
+  turnOff() {
+    this.computer.closeEverything();
+    this.computer.pullCurrent();
+    this.computer.sooth();
+  }
 }
 
 const computer = new ComputerFacade(new Computer());

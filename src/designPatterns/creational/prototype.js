@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Remember dolly? The sheep that was cloned! Lets not get into the details
@@ -15,29 +15,33 @@
  * creation would be expensive as compared to cloning.
  */
 
-function Sheep(name, category = "Mountain Sheep") {
-    this.name = name;
-    this.category = category;
+function Sheep(name, category = 'Mountain Sheep') {
+  this.name = name;
+  this.category = category;
 }
 
-Sheep.prototype.setName = function (name) {
-    this.name = name;
+Sheep.prototype.setName = function(name) {
+  this.name = name;
 };
-Sheep.prototype.getName = function () {
-    return this.name;
+
+Sheep.prototype.getName = function() {
+  return this.name;
 };
-Sheep.prototype.setCategory = function (category) {
-    this.category = category;
+
+Sheep.prototype.setCategory = function(category) {
+  this.category = category;
 };
-Sheep.prototype.getCategory = function () {
-    return this.category;
+
+Sheep.prototype.getCategory = function() {
+  return this.category;
 };
-const original = new Sheep("Jolly");
+
+const original = new Sheep('Jolly');
 console.log(original.getName());
 console.log(original.getCategory());
 
 const cloned = Object.create(original);
-cloned.setName("Dolly");
+cloned.setName('Dolly');
 console.log(cloned.getName());
 console.log(cloned.getCategory());
 

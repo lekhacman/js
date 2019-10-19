@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Extending our door example from Simple Factory. Based on your needs you
@@ -18,72 +18,60 @@
  * When there are interrelated dependencies with not-that-simple creation logic involved
  */
 class Door {
-
-    getDescription() {}
-
+  getDescription() {}
 }
 class WoodenDoor extends Door {
-
-    getDescription() {
-        console.log("I'm a wooden door");
-    }
-
+  getDescription() {
+    console.log("I'm a wooden door");
+  }
 }
 
 class IronDoor extends Door {
-
-    getDescription() {
-        console.log("I'm an iron door");
-    }
-
+  getDescription() {
+    console.log("I'm an iron door");
+  }
 }
 
 class DoorFittingExpert {
-
-    getDescription() {}
-
+  getDescription() {}
 }
 
 class Welder extends DoorFittingExpert {
-
-    getDescription() {
-        console.log("I can only fit iron doors");
-    }
-
+  getDescription() {
+    console.log('I can only fit iron doors');
+  }
 }
 
 class Carpenter extends DoorFittingExpert {
-
-    getDescription() {
-        console.log("I can only fit wooden doors");
-    }
-
+  getDescription() {
+    console.log('I can only fit wooden doors');
+  }
 }
 
 class DoorFactory {
+  static makeDoor() {}
 
-    static makeDoor() {}
-
-    static makeFittingExpert() {}
-
+  static makeFittingExpert() {}
 }
 
 class WoodenDoorFactory extends DoorFactory {
-    static makeDoor() {
-        return new WoodenDoor();
-    }
-    static makeFittingExpert() {
-        return new Carpenter();
-    }
+  static makeDoor() {
+    return new WoodenDoor();
+  }
+
+  static makeFittingExpert() {
+    return new Carpenter();
+  }
 }
 
 class IronDoorFactory extends DoorFactory {
-    static makeDoor() {
-        return new IronDoor();
-    }
-    static makeFittingExpert() {
-        return new Welder();
-    }
+  static makeDoor() {
+    return new IronDoor();
+  }
+
+  static makeFittingExpert() {
+    return new Welder();
+  }
 }
 
 let door = WoodenDoorFactory.makeDoor();

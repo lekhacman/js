@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 class RadioStation {
+  constructor(frequency) {
+    this.frequency = frequency;
+  }
 
-    constructor(frequency) {
-        this.frequency = frequency;
-    }
-
-    getFrequency() {return this.frequency;}
-
+  getFrequency() {
+    return this.frequency;
+  }
 }
 
 const stationList = new Set();
@@ -25,8 +25,8 @@ stationList.add(rs103p2);
 const stationsIterator = stationList.values();
 
 for (let i = 0; i < stationList.size; i++) {
-    const station = stationsIterator.next().value;
-    console.log(station.getFrequency());
+  const station = stationsIterator.next().value;
+  console.log(station.getFrequency());
 }
 
 stationList.delete(rs89);

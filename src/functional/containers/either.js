@@ -40,5 +40,5 @@ class Left extends Either {
 module.exports = {
   Either,
   Right,
-  Left
+  Left,
 };

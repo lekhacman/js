@@ -1,28 +1,28 @@
-const R = require("ramda");
-const { Container, Maybe, maybe } = require("./maybe");
+const R = require('ramda');
+const { Container, Maybe, maybe } = require('./maybe');
 
-test("Container", () => {
+test('Container', () => {
   const c = Container.of(3);
   expect(c.map(x => x + 2)).toEqual(Container.of(5));
 });
 
-test("Maybe", () => {
+test('Maybe', () => {
   const safeHead = xs => Maybe.of(xs[0]);
 
   const streetName = R.compose(
-    R.map(R.prop("street")),
+    R.map(R.prop('street')),
     safeHead,
-    R.prop("addresses")
+    R.prop('addresses')
   );
 
   expect(streetName({ addresses: [] })).toEqual(Maybe.of(undefined));
 
   expect(
-    streetName({ addresses: [{ street: "Shenton Way", number: 6 }] })
-  ).toEqual(Maybe.of("Shenton Way"));
+    streetName({ addresses: [{ street: 'Shenton Way', number: 6 }] })
+  ).toEqual(Maybe.of('Shenton Way'));
 });
 
-describe("Bank", () => {
+describe('Bank', () => {
   const widthdraw = R.curry(function(amount, { balance }) {
     return Maybe.of(balance >= amount ? { balance: balance - amount } : null);
   });
@@ -34,7 +34,7 @@ describe("Bank", () => {
     updateLedger
   );
 
-  test("Explicit error", () => {
+  test('Explicit error', () => {
     const getTwenty = R.compose(
       R.map(finishTransaction),
       widthdraw(20)
@@ -46,7 +46,7 @@ describe("Bank", () => {
     expect(getTwenty({ balance: 10 })).toEqual(Maybe.of(null));
   });
 
-  test("maybe", () => {
+  test('maybe', () => {
     const msg = "You're broke!";
     const getTwenty = R.compose(
       maybe(msg, finishTransaction),

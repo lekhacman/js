@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Consider that you have some pictures in your memory card and you need to transfer
@@ -17,47 +17,42 @@
  * to make existing classes work with others without modifying their source code.
  *
  */
-const config = require("../../core/config");
+const config = require('../../core/config');
 class Lion {
-    roar() {
-        throw new Error(config.CONSTANTS.MESSAGES.ERROR.MISSING_OVERIDE);
-    }
+  roar() {
+    throw new Error(config.CONSTANTS.MESSAGES.ERROR.MISSING_OVERIDE);
+  }
 }
 
 class AfrianLion extends Lion {
-
-    roar() {}
-
+  roar() {}
 }
 class AsianLion extends Lion {
-    roar() {
-
-    }
+  roar() {}
 }
 class WildDog {
-    bark() {}
+  bark() {}
 }
 class WildDogAdapter extends Lion {
-
-    constructor(dog) {
-        if (!(dog instanceof WildDog)) {
-            throw new TypeError("Param must be a WildDog");
-        }
-        super();
-        this.dog = dog;
+  constructor(dog) {
+    if (!(dog instanceof WildDog)) {
+      throw new TypeError('Param must be a WildDog');
     }
 
-    roar() {
-        this.dog.bark();
-    }
+    super();
+    this.dog = dog;
+  }
 
+  roar() {
+    this.dog.bark();
+  }
 }
 class Hunter {
-    hunt(lion) {
-        if (!(lion instanceof Lion)) {
-            throw new TypeError("Param must be a Lion");
-        }
+  hunt(lion) {
+    if (!(lion instanceof Lion)) {
+      throw new TypeError('Param must be a Lion');
     }
+  }
 }
 
 const wildDog = new WildDog();

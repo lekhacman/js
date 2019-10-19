@@ -1,4 +1,4 @@
-const R = require("ramda");
+const R = require('ramda');
 
 class Container {
   constructor(x) {
@@ -28,7 +28,7 @@ class Maybe {
   }
 
   inspect() {
-    return this.isNothing ? "Nothing" : `Just(${this.$value})`;
+    return this.isNothing ? 'Nothing' : `Just(${this.$value})`;
   }
 
   static of(x) {
@@ -51,5 +51,5 @@ const maybe = R.curry(function(v, f, m) {
 module.exports = {
   Container,
   Maybe,
-  maybe
+  maybe,
 };

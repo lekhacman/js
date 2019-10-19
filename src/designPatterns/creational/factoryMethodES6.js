@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Real world example:
@@ -22,62 +22,57 @@
  */
 
 class Interviewer {
-
-    askQuestions() {
-        console.log("I'm an interviewer");
-    }
-
+  askQuestions() {
+    console.log("I'm an interviewer");
+  }
 }
 class Developer extends Interviewer {
-    askQuestions() {
-        console.log("Asking about design patterns.");
-    }
+  askQuestions() {
+    console.log('Asking about design patterns.');
+  }
 }
 
 class CommunityExecutive extends Interviewer {
-    askQuestions() {
-        console.log("Asking about community building.");
-    }
+  askQuestions() {
+    console.log('Asking about community building.');
+  }
 }
 
 class HiringManager {
-
-    constructor() {
-        function makeInterviewer() {
-            return new Interviewer();
-        }
-        this.interviewer = makeInterviewer();
+  constructor() {
+    function makeInterviewer() {
+      return new Interviewer();
     }
 
-    takeInterview() {
-        this.interviewer.askQuestions();
-    }
+    this.interviewer = makeInterviewer();
+  }
 
+  takeInterview() {
+    this.interviewer.askQuestions();
+  }
 }
 class DevelopmentManager extends HiringManager {
-
-    constructor() {
-        super();
-        // Factory method
-        function makeInterviewer() {
-            return new Developer();
-        }
-        this.interviewer = makeInterviewer() ;
+  constructor() {
+    super();
+    // Factory method
+    function makeInterviewer() {
+      return new Developer();
     }
 
+    this.interviewer = makeInterviewer();
+  }
 }
 
 class MarketingManager extends HiringManager {
-
-    constructor() {
-        super();
-        // Factory method
-        function makeInterviewer() {
-            return new CommunityExecutive();
-        }
-        this.interviewer = makeInterviewer();
+  constructor() {
+    super();
+    // Factory method
+    function makeInterviewer() {
+      return new CommunityExecutive();
     }
 
+    this.interviewer = makeInterviewer();
+  }
 }
 
 const devManager = new DevelopmentManager();

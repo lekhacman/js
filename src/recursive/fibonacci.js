@@ -6,18 +6,19 @@ module.exports = { fibonacci, iterFibonacci };
  * @return {number}
  */
 function iterFibonacci(x) {
-    let result = 0;
-    let a = 0;
-    let b = 1;
+  let result = 0;
+  let a = 0;
+  let b = 1;
 
-    for (let i = 1; i <= x; i++) {
-        result = a + b;
+  for (let i = 1; i <= x; i++) {
+    result = a + b;
 
-        const mem = a;
-        a += b;
-        b = mem;
-    }
-    return result;
+    const mem = a;
+    a += b;
+    b = mem;
+  }
+
+  return result;
 }
 
 /**
@@ -26,9 +27,9 @@ function iterFibonacci(x) {
  * @return {*}
  */
 function fibonacci(x) {
-    if (x <= 1) {
-        return x;
-    }
+  if (x <= 1) {
+    return x;
+  }
 
-    return fibonacci(x - 1) + fibonacci(x - 2);
+  return fibonacci(x - 1) + fibonacci(x - 2);
 }
