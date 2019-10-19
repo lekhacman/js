@@ -2,22 +2,90 @@
   "name": "js",
   "version": "1.0.0",
   "description": "JS samples",
-  "repository": "https://github.com/lekhacman/js.git",
+  "homepage": "",
   "author": "Le Khac Man",
+  "files": [
+    "src/lib"
+  ],
+  "main": "src/lib/index.js",
+  "keywords": [
+    ""
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "@types/jest": "^24.0.19",
+    "@types/ramda": "^0.26.33",
+    "eslint": "^6.0.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-xo": "^0.26.0",
+    "eslint-plugin-jest": "^22.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.1",
+    "jest": "^24.8.0",
+    "lint-staged": "^9.2.0",
+    "prettier": "^1.18.2"
+  },
+  "engines": {
+    "npm": ">= 4.0.0"
+  },
+  "repository": "https://github.com/lekhacman/js.git",
   "license": "MIT",
   "dependencies": {
-    "@types/jest": "^24.0.18",
     "benchmark": "^2.1.4",
     "crc": "^3.5.0",
-    "lodash": "^4.17.5",
+    "folktale": "^2.3.2",
     "ramda": "^0.26.1"
   },
-  "devDependencies": {
-    "eslint": "^5.9.0",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-jest": "^22.0.0",
-    "eslint-plugin-prettier": "^3.0.0",
-    "jest": "^24.1.0",
-    "prettier": "^1.15.2"
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "xo",
+      "prettier"
+    ],
+    "env": {
+      "jest": true,
+      "node": true
+    },
+    "rules": {
+      "new-cap": "off",
+      "capitalized-comments": "off",
+      "prettier/prettier": [
+        "error",
+        {
+          "trailingComma": "es5",
+          "singleQuote": true
+        }
+      ]
+    },
+    "plugins": [
+      "prettier"
+    ]
+  },
+  "scripts": {
+    "pretest": "eslint .",
+    "test": "jest",
+    "fix": "eslint --fix ."
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime"
+    ]
   }
 }
