@@ -27,6 +27,10 @@ class Maybe {
     return this.isNothing ? this : Maybe.of(f(this.$value));
   }
 
+  join() {
+    return this.isNothing ? Maybe.of(null) : this.$value;
+  }
+
   inspect() {
     return this.isNothing ? 'Nothing' : `Just(${this.$value})`;
   }

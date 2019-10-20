@@ -20,9 +20,14 @@ export function IO(spec) {
     return value();
   }
 
+  function join() {
+    return unsafePerformIO();
+  }
+
   return {
     map,
     inspect,
     unsafePerformIO,
+    join,
   };
 }
