@@ -1,10 +1,6 @@
-const R = require('ramda');
-const { Container, Maybe, maybe } = require('./maybe');
+import { maybe, Maybe } from './maybe';
 
-test('Container', () => {
-  const c = Container.of(3);
-  expect(c.map(x => x + 2)).toEqual(Container.of(5));
-});
+const R = require('ramda');
 
 test('Maybe', () => {
   const safeHead = xs => Maybe.of(xs[0]);

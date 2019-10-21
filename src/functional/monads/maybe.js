@@ -1,20 +1,6 @@
 const R = require('ramda');
 
-class Container {
-  constructor(x) {
-    this.$value = x;
-  }
-
-  map(f) {
-    return Container.of(f(this.$value));
-  }
-
-  static of(x) {
-    return new Container(x);
-  }
-}
-
-class Maybe {
+export class Maybe {
   constructor(x) {
     this.$value = x;
   }
@@ -44,16 +30,10 @@ class Maybe {
  * see R.unless, R.when
  * b -> (a -> b) -> Maybe a -> b
  */
-const maybe = R.curry(function(v, f, m) {
+export const maybe = R.curry(function(v, f, m) {
   if (m.isNothing) {
     return v;
   }
 
   return f(m.$value);
 });
-
-module.exports = {
-  Container,
-  Maybe,
-  maybe,
-};

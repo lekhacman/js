@@ -33,6 +33,7 @@
   "repository": "https://github.com/lekhacman/js.git",
   "license": "MIT",
   "dependencies": {
+    "@babel/runtime": "^7.6.3",
     "benchmark": "^2.1.4",
     "crc": "^3.5.0",
     "folktale": "^2.3.2",
