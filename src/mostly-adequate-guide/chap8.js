@@ -1,11 +1,33 @@
-function Functor(value) {
-  this.value = value;
+function Container(x) {
+  this.value = x;
 }
 
-Functor.prototype.map = function (f) {
-  return Functor.of(f(this.value));
+Container.prototype.map = function(fn) {
+  if (this.value) {
+    return Container.of(fn(this.value));
+  }
+
+  return this;
 };
 
-Functor.of = function (value) {
-  return new Functor(value);
+Container.of = function(x) {
+  return new Container(x);
 };
+
+function Maybe(x) {
+  this.value = x;
+}
+
+Maybe.prototype.map = function(fn) {
+  if (this.value) {
+    return Maybe.of(fn(this.value));
+  }
+
+  return this;
+};
+
+Maybe.of = function(x) {
+  return new Maybe(x);
+};
+
+module.exports = { Container, Maybe };

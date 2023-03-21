@@ -25,7 +25,7 @@ function IO(f) {
   this.f = f;
 }
 
-IO.prototype.map = function (f) {
+IO.prototype.map = function(f) {
   return new IO(
     R.compose(
       f,
@@ -34,21 +34,21 @@ IO.prototype.map = function (f) {
   );
 };
 
-IO.prototype.unsafePerformIO = function () {
+IO.prototype.unsafePerformIO = function() {
   return this.f();
 };
 
-IO.prototype.inspect = function () {
+IO.prototype.inspect = function() {
   return `IO(${this.f()})`;
 };
 
-IO.prototype.join = function () {
+IO.prototype.join = function() {
   return this.unsafePerformIO();
 };
 
 IO.prototype.concat = IO.prototype.join;
 
-IO.of = function (value) {
+IO.of = function(value) {
   return new IO(() => value);
 };
 

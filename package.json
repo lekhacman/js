@@ -17,6 +17,7 @@
     "@babel/preset-env": "^7.6.3",
     "@types/jest": "^24.0.19",
     "@types/ramda": "^0.26.33",
+    "@types/sanctuary": "^3.0.3",
     "eslint": "^6.0.1",
     "eslint-config-prettier": "^6.0.0",
     "eslint-config-xo": "^0.26.0",
@@ -24,7 +25,6 @@
     "eslint-plugin-prettier": "^3.1.0",
     "husky": "^3.0.1",
     "jest": "^24.8.0",
-    "lint-staged": "^9.2.0",
     "prettier": "^1.18.2"
   },
   "engines": {
@@ -37,17 +37,8 @@
     "benchmark": "^2.1.4",
     "crc": "^3.5.0",
     "folktale": "^2.3.2",
-    "ramda": "^0.26.1"
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add"
-    ]
+    "ramda": "^0.26.1",
+    "sanctuary": "^3.1.0"
   },
   "eslintConfig": {
     "extends": [
