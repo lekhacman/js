@@ -2,3 +2,4 @@
 **/.idea
 **/public/assets/lib/**
 **/dist
+.yarn
