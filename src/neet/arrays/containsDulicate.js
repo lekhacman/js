@@ -9,3 +9,7 @@ export default function containsDulicate(nums) {
     return false;
   });
 }
+
+export function add(a, b) {
+return a + b;
+}
