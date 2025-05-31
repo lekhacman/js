@@ -1,0 +1,11 @@
+import <%= problemName; %> from "./<%= problemName; %>";
+
+describe("<%= problemName; %>", function () {
+  it.each([
+    { <%= paramName; %>: {}, expected: null },
+    { <%= paramName; %>: {}, expected: null },
+  ])("#%# should ", function ({ <%= paramName; %>, expected }) {
+    expect(<%= problemName; %>(<%= paramName; %>)).toEqual(expected);
+  });
+});
+1
