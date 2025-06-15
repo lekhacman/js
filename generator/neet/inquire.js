@@ -1,6 +1,10 @@
 import { input, rawlist } from "@inquirer/prompts";
 import ejs from "ejs";
 import { readFile, writeFile, mkdir } from "fs/promises";
+import { exec } from "child_process";
+import { promisify } from "util";
+
+const execPromise = promisify(exec);
 
 async function main() {
   const cat = await rawlist({
@@ -53,5 +57,6 @@ async function main() {
       },
     ),
   );
+  return execPromise(`git add ${basePath}`)
 }
 main();
